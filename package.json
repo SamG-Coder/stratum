@@ -1,0 +1,8 @@
+{
+  "name": "stratum-compute-city", "version": "0.1.0", "type": "module", "private": true,
+  "description": "CUDA-authored procedural city with GPU generated, cached analytic geometry and hierarchical ray visibility.",
+  "homepage": "https://samg-coder.github.io/stratum/",
+  "repository": {"type": "git", "url": "https://github.com/SamG-Coder/stratum.git"},
+  "scripts": {"start": "node server.mjs", "build": "node tools/compile.mjs", "test": "node --test tests/*.test.mjs", "pages": "node tools/pages.mjs"},
+  "engines": {"node": ">=20"}, "license": "MIT"
+}

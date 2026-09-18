@@ -1,0 +1,15 @@
+PASS Morton interleaving preserves ten bits
+PASS GPU-style procedural page requests create real geometry
+PASS stationary scene reuses cached geometry without regeneration
+PASS landmark page is resident
+PASS BVH root count matches generated primitives
+PASS BVH intersections match exhaustive visibility (200 rays)
+PASS finite procedural lighting output
+Maximum gradient error 2.84016e-05
+PASS all 291 neural gradients match finite differences
+PASS live neural material updates and held-out observations
+PASS trained substrate improves on material-mean baseline in deterministic inspection test
+LEARNING {"steps":500,"heldOut":4000,"neuralMSE":1.37933e-05,"baselineMSE":0.00441985,"gate":1}
+PASS training freeze preserves weights
+PASS cache residency remains bounded during camera travel
+PASS regenerated geometry is finite

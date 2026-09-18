@@ -1,0 +1,384 @@
+[
+  {
+    "entry": "initWorld",
+    "file": "world",
+    "workgroupSize": [
+      64,
+      1,
+      1
+    ],
+    "dependencies": [
+      "common",
+      "world"
+    ],
+    "bindings": [
+      "World",
+      "Meta",
+      "C"
+    ],
+    "uniformBytes": 16
+  },
+  {
+    "entry": "stepCamera",
+    "file": "world",
+    "workgroupSize": [
+      1,
+      1,
+      1
+    ],
+    "dependencies": [
+      "common",
+      "world"
+    ],
+    "bindings": [
+      "C",
+      "I",
+      "World"
+    ],
+    "uniformBytes": 16
+  },
+  {
+    "entry": "selectPages",
+    "file": "world",
+    "workgroupSize": [
+      64,
+      1,
+      1
+    ],
+    "dependencies": [
+      "common",
+      "world"
+    ],
+    "bindings": [
+      "C",
+      "World",
+      "Meta",
+      "Req"
+    ],
+    "uniformBytes": 0
+  },
+  {
+    "entry": "schedulePages",
+    "file": "world",
+    "workgroupSize": [
+      1,
+      1,
+      1
+    ],
+    "dependencies": [
+      "common",
+      "world"
+    ],
+    "bindings": [
+      "Req",
+      "Queue",
+      "Stats"
+    ],
+    "uniformBytes": 0
+  },
+  {
+    "entry": "commitPages",
+    "file": "world",
+    "workgroupSize": [
+      64,
+      1,
+      1
+    ],
+    "dependencies": [
+      "common",
+      "world"
+    ],
+    "bindings": [
+      "Req",
+      "Queue",
+      "P",
+      "Meta",
+      "C"
+    ],
+    "uniformBytes": 0
+  },
+  {
+    "entry": "summarise",
+    "file": "world",
+    "workgroupSize": [
+      1,
+      1,
+      1
+    ],
+    "dependencies": [
+      "common",
+      "world"
+    ],
+    "bindings": [
+      "Meta",
+      "Req",
+      "C",
+      "Stats"
+    ],
+    "uniformBytes": 0
+  },
+  {
+    "entry": "generatePages",
+    "file": "assets",
+    "workgroupSize": [
+      64,
+      1,
+      1
+    ],
+    "dependencies": [
+      "common",
+      "assets"
+    ],
+    "bindings": [
+      "World",
+      "Req",
+      "Queue",
+      "P"
+    ],
+    "uniformBytes": 0
+  },
+  {
+    "entry": "sortPages",
+    "file": "cache",
+    "workgroupSize": [
+      256,
+      1,
+      1
+    ],
+    "dependencies": [
+      "common",
+      "cache"
+    ],
+    "bindings": [
+      "Queue",
+      "P",
+      "Order",
+      "Nodes"
+    ],
+    "uniformBytes": 0
+  },
+  {
+    "entry": "buildBVH",
+    "file": "cache",
+    "workgroupSize": [
+      64,
+      1,
+      1
+    ],
+    "dependencies": [
+      "common",
+      "cache"
+    ],
+    "bindings": [
+      "Queue",
+      "Nodes"
+    ],
+    "uniformBytes": 16
+  },
+  {
+    "entry": "tracePrimary",
+    "file": "trace",
+    "workgroupSize": [
+      8,
+      8,
+      1
+    ],
+    "dependencies": [
+      "common",
+      "trace"
+    ],
+    "bindings": [
+      "World",
+      "Meta",
+      "P",
+      "Nodes",
+      "Order",
+      "C",
+      "Hit"
+    ],
+    "uniformBytes": 16
+  },
+  {
+    "entry": "initNeural",
+    "file": "learning",
+    "workgroupSize": [
+      64,
+      1,
+      1
+    ],
+    "dependencies": [
+      "common",
+      "trace",
+      "materials",
+      "learning"
+    ],
+    "bindings": [
+      "W",
+      "M",
+      "V",
+      "Brain"
+    ],
+    "uniformBytes": 16
+  },
+  {
+    "entry": "prepareMaterialBatch",
+    "file": "learning",
+    "workgroupSize": [
+      64,
+      1,
+      1
+    ],
+    "dependencies": [
+      "common",
+      "trace",
+      "materials",
+      "learning"
+    ],
+    "bindings": [
+      "P",
+      "Hit",
+      "C",
+      "Work"
+    ],
+    "uniformBytes": 16
+  },
+  {
+    "entry": "materialForward",
+    "file": "learning",
+    "workgroupSize": [
+      64,
+      1,
+      1
+    ],
+    "dependencies": [
+      "common",
+      "trace",
+      "materials",
+      "learning"
+    ],
+    "bindings": [
+      "C",
+      "W",
+      "Work"
+    ],
+    "uniformBytes": 0
+  },
+  {
+    "entry": "scoreMaterial",
+    "file": "learning",
+    "workgroupSize": [
+      1,
+      1,
+      1
+    ],
+    "dependencies": [
+      "common",
+      "trace",
+      "materials",
+      "learning"
+    ],
+    "bindings": [
+      "C",
+      "Work",
+      "Brain"
+    ],
+    "uniformBytes": 0
+  },
+  {
+    "entry": "materialGradient",
+    "file": "learning",
+    "workgroupSize": [
+      64,
+      1,
+      1
+    ],
+    "dependencies": [
+      "common",
+      "trace",
+      "materials",
+      "learning"
+    ],
+    "bindings": [
+      "C",
+      "Work",
+      "W",
+      "Grad",
+      "Brain"
+    ],
+    "uniformBytes": 0
+  },
+  {
+    "entry": "materialAdam",
+    "file": "learning",
+    "workgroupSize": [
+      64,
+      1,
+      1
+    ],
+    "dependencies": [
+      "common",
+      "trace",
+      "materials",
+      "learning"
+    ],
+    "bindings": [
+      "C",
+      "Grad",
+      "W",
+      "M",
+      "V",
+      "Brain"
+    ],
+    "uniformBytes": 0
+  },
+  {
+    "entry": "shadePixels",
+    "file": "shade",
+    "workgroupSize": [
+      8,
+      8,
+      1
+    ],
+    "dependencies": [
+      "common",
+      "trace",
+      "materials",
+      "shade"
+    ],
+    "bindings": [
+      "World",
+      "P",
+      "C",
+      "Hit",
+      "W",
+      "Brain",
+      "Linear"
+    ],
+    "uniformBytes": 16
+  },
+  {
+    "entry": "resolveFrame",
+    "file": "shade",
+    "workgroupSize": [
+      8,
+      8,
+      1
+    ],
+    "dependencies": [
+      "common",
+      "trace",
+      "materials",
+      "shade"
+    ],
+    "bindings": [
+      "Linear",
+      "History",
+      "Pixels",
+      "C",
+      "Stats",
+      "Hit",
+      "P"
+    ],
+    "uniformBytes": 16
+  }
+]

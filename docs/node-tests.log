@@ -1,0 +1,38 @@
+
+> stratum-compute-city@0.1.0 test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: all 18 CUDA entry points rebuild into the shipped WGSL
+ok 1 - all 18 CUDA entry points rebuild into the shipped WGSL
+  ---
+  duration_ms: 1004.583194
+  type: 'test'
+  ...
+# Subtest: host buffer ABI agrees with CUDA dimensions and dispatch widths
+ok 2 - host buffer ABI agrees with CUDA dimensions and dispatch widths
+  ---
+  duration_ms: 0.951065
+  type: 'test'
+  ...
+# Subtest: full host/runtime dispatch and presentation contract (device double, not GPU execution)
+ok 3 - full host/runtime dispatch and presentation contract (device double, not GPU execution)
+  ---
+  duration_ms: 20.507733
+  type: 'test'
+  ...
+# Subtest: camera and training remain bounded and quality-gated in the authored source
+ok 4 - camera and training remain bounded and quality-gated in the authored source
+  ---
+  duration_ms: 0.254924
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1108.388839

@@ -1,0 +1,75 @@
+{
+  "schema": "stratum-validation",
+  "version": 1,
+  "recordedAtUTC": "2026-09-18T10:32:42.822248+00:00",
+  "combinedSourceSHA256": "365a2e15889c73b680bb0950098bcb8c8b398e5ae75d74f909cb0565099251dd",
+  "translation": {
+    "entries": 18,
+    "status": "passed",
+    "browserDriverValidation": false
+  },
+  "nodeTests": {
+    "groups": 4,
+    "passed": 4,
+    "GPUExecuted": false,
+    "hostUsesExplicitDeviceDouble": true
+  },
+  "nativeReference": {
+    "passed": true,
+    "GPUExecuted": false,
+    "cooperativeSortExecuted": false,
+    "sort": "independent CPU std::sort reference",
+    "intersectionReferenceRays": 200,
+    "intersectionToleranceMetres": 0.001,
+    "finiteDifferenceParameters": 291,
+    "maxGradientAbsoluteError": 2.84016e-05,
+    "trainingFixture": {
+      "steps": 500,
+      "scoredObservations": 4000,
+      "runningNeuralRGBMSE": 1.37933e-05,
+      "runningBaselineRGBMSE": 0.00441985,
+      "gateOpened": true,
+      "scope": "deterministic inspection-surface fixture, not city-wide perceptual or performance validation"
+    }
+  },
+  "browserGPU": {
+    "status": "not_verified",
+    "reason": "Local Chromium navigation blocked: net::ERR_BLOCKED_BY_ADMINISTRATOR",
+    "selfTest": "tests/browser.html"
+  },
+  "previewRenderer": "authored CUDA functions on CPU; cooperative sort replaced by independent CPU reference",
+  "previews": [
+    {
+      "view": "skyline",
+      "width": 1440,
+      "height": 900,
+      "stationarySamples": 8,
+      "residentPages": 101,
+      "residentAnalyticPrimitives": 89153
+    },
+    {
+      "view": "street",
+      "width": 1440,
+      "height": 900,
+      "stationarySamples": 4,
+      "residentPages": 98,
+      "residentAnalyticPrimitives": 88933
+    },
+    {
+      "view": "masonry",
+      "width": 1000,
+      "height": 750,
+      "stationarySamples": 8,
+      "residentPages": 98,
+      "residentAnalyticPrimitives": 82574
+    },
+    {
+      "view": "grain",
+      "width": 1000,
+      "height": 750,
+      "stationarySamples": 8,
+      "residentPages": 97,
+      "residentAnalyticPrimitives": 82574
+    }
+  ]
+}
