@@ -2,7 +2,7 @@ name: Test and deploy Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, hyperdetail-continuous-lod]
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -11,26 +11,53 @@ permissions:
   contents: read
 
 concurrency:
-  group: pages-${{ github.ref }}
+  group: pages
   cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - name: Checkout main site
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          path: main
+
+      - name: Checkout hyperdetail experiment
+        uses: actions/checkout@v6
+        with:
+          ref: hyperdetail-continuous-lod
+          path: hyperdetail
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Compile CUDA entry points and run tests
-        run: npm test
-      - name: Package static site
-        run: npm run pages
+
+      - name: Test and package main
+        working-directory: main
+        run: |
+          npm test
+          npm run pages
+
+      - name: Test and package hyperdetail
+        working-directory: hyperdetail
+        run: |
+          npm test
+          npm run pages
+
+      - name: Combine Pages artifact
+        run: |
+          mkdir -p site
+          cp -a main/dist/. site/
+          mkdir -p site/hyperdetail
+          cp -a hyperdetail/dist/. site/hyperdetail/
+
       - name: Upload Pages artifact
         if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v4
         with:
-          path: dist
+          path: site
 
   deploy:
     if: github.event_name != 'pull_request'
