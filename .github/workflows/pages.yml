@@ -44,6 +44,7 @@ jobs:
       - name: Test and package hyperdetail
         working-directory: hyperdetail
         run: |
+          npm run build
           npm test
           npm run pages
 
