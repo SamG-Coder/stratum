@@ -37,6 +37,7 @@ jobs:
       - name: Test and package main
         working-directory: main
         run: |
+          npm run build
           npm test
           npm run pages
 
